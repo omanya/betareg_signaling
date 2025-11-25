@@ -1,4 +1,4 @@
-# Abstract
+# Optimizing Signaling Strategies in Online Teaching: A Data-Driven Approach
 
 Effective signaling in instructional materials—through cues such as
 highlights, arrows, and annotations—can guide learner attention, reduce
@@ -36,7 +36,7 @@ environments.
 
 -   plotting the PC loadings
 
-<img src="betareg_signaling_files/figure-markdown_strict/figstrat1-1.png" alt="Bar plots showing the feature weights for the four signaling strategies extracted by PCA. The labels correspond to the underlying observed variables, while the term “extra” indicates weights associated with the squared versions of these variables." width="100%"  />
+<img src="README_files/figure-markdown_strict/figstrat1-1.png" alt="Bar plots showing the feature weights for the four signaling strategies extracted by PCA. The labels correspond to the underlying observed variables, while the term “extra” indicates weights associated with the squared versions of these variables." width="100%"  />
 <p class="caption">
 Bar plots showing the feature weights for the four signaling strategies
 extracted by PCA. The labels correspond to the underlying observed
@@ -216,7 +216,7 @@ resulting beta distributions.
 
 -   selected shapes
 
-<img src="betareg_signaling_files/figure-markdown_strict/figshapes-1.png" alt="Fitted beta distribution densities for a selection of teaching cases, illustrating variation in mean and scale parameters across the modelled topics." width="100%"  />
+<img src="README_files/figure-markdown_strict/figshapes-1.png" alt="Fitted beta distribution densities for a selection of teaching cases, illustrating variation in mean and scale parameters across the modelled topics." width="100%"  />
 <p class="caption">
 Fitted beta distribution densities for a selection of teaching cases,
 illustrating variation in mean and scale parameters across the modelled
