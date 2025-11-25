@@ -1,0 +1,289 @@
+---
+title: "Optimizing Signaling Strategies in Online Teaching: A Data-Driven Approach"
+author: Maria Osipenko
+output: md_document
+---
+
+```{r setup, include=FALSE, echo=FALSE}
+knitr::opts_chunk$set(echo = FALSE,out.extra = "")  # This forces knitr to label all figures.
+```
+
+
+# Abstract
+
+ Effective signaling in instructional materials—through cues such as highlights, arrows, and annotations—can guide learner attention, reduce cognitive load, and enhance comprehension in multimedia-rich online courses. While the benefits of signaling are well documented, little is known about how combinations of signaling strategies influence both the average performance and the consistency of student outcomes. In this study, we propose a data-driven approach to evaluate and optimize signaling strategies in online teaching. Using lecture materials from three semesters of introductory and intermediate statistics courses, we extracted multiple features of textual and visual signaling, including highlighted words, annotated formulas, arrows, and notes. Principal Component Analysis identified four distinct signaling strategies employed by the instructor. We then applied a heteroscedastic beta regression model to link these strategies to topic-level exam performance, allowing simultaneous assessment of mean learning outcomes and variability across students. Results show that strategies combining formula highlighting with arrows and detailed notes improve both the average proportion of successful learners and the stability of outcomes, while relying solely on formula highlighting increases variability. Our findings provide actionable guidance for instructors to design effective signaling strategies, and demonstrate a flexible framework for data-driven evaluation of teaching practices in online learning environments.
+
+
+# Data Preprocessing and Extracting Singaling Strategies
+
+- downloading the data
+
+```{r}
+rm(list=ls())
+daten_explor<-read.csv("Data_complete.csv")
+```
+
+
+- scaling the data
+
+```{r}
+scale2pages<-c("drawings","pictures","highlightedelements","arrows")
+scale2words<-c("highlightedwords", "notes")
+scale2formulas<-c("highlightedformulas")
+scale2itself<-c("colorspen","colorsmarker",scale2words,scale2pages,scale2formulas)
+
+daten_explor[,scale2pages]<-daten_explor[,scale2pages]/daten_explor$pages
+daten_explor[,scale2words]<-daten_explor[,scale2words]/daten_explor$pages/daten_explor$words
+
+daten_explor_sc<-daten_explor
+daten_explor_sc[,scale2itself]<-scale(daten_explor_sc[,scale2itself])
+
+```
+
+
+- downloading the responses
+
+```{r}
+daten_resp<-read.csv("Data_response.csv")
+```
+
+```{r}
+#combine
+daten<-merge(daten_resp,daten_explor_sc,all.x=T,all.y=T,by.x=c("semester","course","lesson"), by.y=c("semester","course","lesson"))
+#course indicator
+daten$statistik<-(daten$course=="Statistik")
+#colors total
+daten$colors<-daten$colorsmarker+daten$colorspen
+#experience (semester)
+daten$experience<-1
+daten$experience[daten$semester=="SS21"]<-2
+daten$experience[daten$semester=="WS21/22"]<-3
+# difficulty of topics
+daten$complex<-0
+daten$complex[daten$course=="Statistik"&daten$lesson%in%c("L7","L8","L9","L10")]<-1
+daten$complex[daten$course=="Statistik 2"&daten$lesson%in%c("L2","L3","L4","L6.2")]<-1
+# advanced course
+daten$advanced<-0
+daten$advanced[daten$course=="Statistik 2"]<-1
+```
+
+
+- extracting the signaling strategies
+
+```{r}
+#set up a data matrix with the variables, their squares and the interaction terms.
+vars4regression<-c("highlightedwords","notes","arrows","highlightedformulas")
+df<-daten[!is.na(daten$aver),c(vars4regression)]
+df<-cbind(df, df^2)
+colnames(df)[(length(vars4regression)+1):ncol(df)]<-paste0(vars4regression,"^2")
+
+for(i in 1:(length(vars4regression)-1)){
+  dfi<-data.frame(df[,vars4regression[i]]*df[,vars4regression[(i+1):length(vars4regression)]])
+  colnames(dfi)<-paste0(vars4regression[i],"*",vars4regression[(i+1):length(vars4regression)])
+  df<-cbind(df, dfi)
+}
+
+#outliers
+outl = c(28,62)
+
+# pca
+pcmod<-prcomp(as.matrix(df[!rownames(df)%in%outl,]))
+pcs<-c(1:5)
+varprop = cumsum(pcmod$sdev^2)/sum(pcmod$sdev^2)
+
+K=4# explain more than 90%
+coefs<-pcmod$x[,1:K]
+whichones = c(2,3)
+coefs[,whichones] = -coefs[,whichones]
+basis = pcmod$rotation[,1:K]
+basis[,whichones] = -basis[,whichones]
+
+```
+
+- plotting the PC loadings
+
+
+```{r figstrat1, echo=FALSE,  , out.width="100%",fig.height=4, fig.align='center', fig.cap='Bar plots showing the feature weights for the four signaling strategies extracted by PCA. The labels correspond to the underlying observed variables, while the term “extra” indicates weights associated with the squared versions of these variables.' }
+library(scales)
+
+basis_norm<-basis
+names_comp = c("usage of h_words", "usage of notes", "usage of arrows","usage of h_formulas","extra usage of h_words", "extra usage of notes", "extra usage of arrows","extra usage of h_formulas", "notes and h_words","arrows and h_words","h_words and h_formulas","arrows with notes","notes in h_formulas","arrows in h_formulas")
+
+ord = c(1,5,2,6,3,7,4,8,9:14)
+K = ncol(basis)
+reorder_comps<-1:K
+
+par(mfrow=c(2,2), mar=c(2,2,2,2), xpd=T)
+mains<-numeric(K)
+
+i=1
+while(i <=K){
+  mains[i]<-paste0("S",i)
+    bp<-barplot(basis_norm[ord,reorder_comps[i]],col=alpha(i,0.3), horiz=T,las=1,names.arg=F, 
+              main=mains[i],xlim=c(-1,1),
+            axes=F, cex.main=1)
+  axis(1,at=c(-1,-0.5,0,0.5,1))
+  axis(2,tick = F,labels = F)
+  if(i %in% c(1,3)){
+    text(-0.3,bp[seq(1,length(bp),by=1)],names_comp[ord],cex=0.7, pos=2)
+  }
+  
+  i=i+1
+  
+}
+
+```
+
+
+
+# Beta Regression with Heteroscedasticity
+
+- regression results
+
+```{r, warning=FALSE, messages=FALSE, include=FALSE}
+library(tidyverse) 
+library(modelsummary)
+library(broom)
+library(kableExtra)
+#https://cran.r-project.org/web/packages/betareg/vignettes/betareg.html
+library(betareg)
+dfmod<-data.frame(cbind(daten[!(is.na(daten$aver)|rownames(daten)%in%outl),c("passed","attempted","complex","experience","course")],coefs))
+dfmod = transform(dfmod, prop=passed/attempted)
+colnames(dfmod)[grepl("PC",colnames(dfmod))] = paste0("S",1:K)
+
+# beta model with heteroscedasticity
+model1 <- betareg(prop ~ complex+S1+S2+S3+S4|complex+S1+S2+S3+S4, data=dfmod[,-c(1,2)], link="logit",link.phi = "log", type="ML")
+#summary(model1)
+```
+
+
+```{r tabmod}
+coefs0<-unlist(model1$coefficients)
+tab = tidy(model1)
+
+caption<-"Heteroscedastic Beta Regression Results for Mean and Precision Components."
+
+ knitr::kable(tab, align = "llll",
+               col.names = colnames(tab),
+               row.names = FALSE,
+               digits = 4,
+               caption = caption
+  )
+```
+
+- summaries for the parameters
+
+```{r tabsum}
+# under different strategy combinations
+mu = phi = numeric(nrow(dfmod))
+
+xvars = cbind(1,dfmod[,c("complex","S1","S2","S3","S4")])
+for (i in 1:nrow(dfmod)){
+  linki = model1$coefficients$mean%*%as.numeric(xvars[i,])
+  mu[i] = pnorm(linki, 0,1)
+  linki = model1$coefficients$precision%*%as.numeric(xvars[i,])
+  phi[i] = exp(linki)
+}
+
+means = mu
+vars = mu*(1-mu)/(1+phi)
+sds = sqrt(vars)
+
+tab_mv = cbind(case=1:length(mu), mean=means, sd=sds)
+tab_sum=rbind(means=c(summary(means)),sds=c(summary(sds)))
+colnames(tab_sum)=c("minimum","lower quartile","median","mean","upper quartile","maximum")
+
+caption<-"Summaries of the estimated means and standard deviations of the resulting beta distributions."
+
+ knitr::kable(tab_sum, align = "llll",
+               col.names = colnames(tab_sum),
+               row.names = TRUE,
+               digits = 4,
+               caption = caption
+  )
+```
+
+- selected shapes
+
+```{r figshapes, out.width="100%",fig.height=3, fig.cap = "Fitted beta distribution densities for a selection of teaching cases, illustrating variation in mean and scale parameters across the modelled topics.", echo=F}
+x=seq(0,1,0.001)
+plot(x, dbetar(x,mu[1],phi[1]), type="l", ylim=c(0,15), ylab="f(y)", xlab="y", axes=FALSE, col=NA)
+axis(1)
+axis(2, las=2)
+ind = labl = rn = NULL
+for (i in 1:nrow(dfmod)){
+  dist = dbetar(x,mu[i],phi[i])
+  col=scales::alpha(1,0.5)
+  if(any(dist>15)){
+    col=3
+    ind = c(ind, i)
+    rn = c(rn, rownames(dfmod)[i])
+    labl = c(labl, "green")
+  } else if (any(dist>14)){
+    col=2
+    ind = c(ind, i)
+     rn = c(rn, rownames(dfmod)[i])
+     labl = c(labl, "red")
+  } else if (any(dist>10)){
+    col="orange"
+    ind = c(ind, i)
+     rn = c(rn, rownames(dfmod)[i])
+     labl = c(labl, "orange")
+  } else if (any(dist[x==0.71]>5)){
+    col=4
+    ind = c(ind, i)
+     rn = c(rn, rownames(dfmod)[i])
+     labl = c(labl, "blue")
+  } else {col= "darkgreen"}
+  if(any(dist>5)&max(dist)<30){  lines(x,dist, col=col)}
+}
+
+```
+
+- the estimated mean parameters versus the strategy scores
+
+```{r tabmu}
+dfmod = transform(dfmod, mu= mu, phi=phi, mu_low=cut(mu, breaks=c(0,0.6,0.7,0.8)), 
+                  phi_low=cut(phi, breaks=c(0,10,100,Inf)))
+
+tab_mu=cbind(aggregate(S1~mu_low, FUN=mean, data=dfmod),S2=aggregate(S2~mu_low, FUN=mean, data=dfmod)[,2],
+      S3=aggregate(S3~mu_low, FUN=mean, data=dfmod)[,2],
+      S4=aggregate(S4~mu_low, FUN=mean, data=dfmod)[,2])
+
+tab_mu$mu_low = c("small", "medium","large")
+
+tab_phi=cbind(aggregate(S1~phi_low, FUN=mean, data=dfmod),S2=aggregate(S2~phi_low, FUN=mean, data=dfmod)[,2],
+      S3=aggregate(S3~phi_low, FUN=mean, data=dfmod)[,2],
+    S4=aggregate(S4~phi_low, FUN=mean, data=dfmod)[,2])
+tab_phi$phi_low = c("small", "medium","large")
+
+caption<-"Average strategy scores for the four signaling strategies across different ranges of the fitted mean parameter $\\mu$ indicating how strategy usage relates to topic-level performance."
+
+ knitr::kable(tab_mu, align = "llll",
+               col.names = c("mean $\\hat\\mu$","S1","S2","S3","S4"),
+               row.names = FALSE,
+               digits = 4,
+              escape=FALSE,
+               caption = caption
+  )
+```
+
+- the estimated precision parameters versus the strategy scores
+
+```{r tabphi}
+caption<-"Average strategy scores for the four signaling strategies across different ranges of the fitted precision parameter $\\phi$ indicating how strategy usage relates to topic-level performance."
+
+ knitr::kable(tab_phi, align = "llll",
+               col.names = c("precision $\\hat\\phi$","S1","S2","S3","S4"),,
+               row.names = FALSE,
+               digits = 4,
+              escape=F,
+               caption = caption
+  )
+```
+
+
+Overall, this study highlights the value of combining detailed instructional feature extraction with robust statistical modeling to inform evidence-based improvements in teaching and learning. By focusing on both the magnitude and consistency of learning outcomes, instructors can design signaling strategies that maximize comprehension and ensure more equitable success across students.
+
+
+

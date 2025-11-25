@@ -1,0 +1,64 @@
+semester,course,lesson,name,pages,words,formulas,colorspen,colorsmarker,highlightedwords,highlightedformulas,notes,drawings,pictures,highlightedelements,arrows
+WS20/21,Statistik,L1,"Merkmale und Häufigkeiten, empirische Verteilung",11,1230,11,10,10,312,6,720,19,13,15,223
+WS20/21,Statistik,L2,Kennzahlen bei einem Merkmal,8,840,21,8,10,178,17,460,10,12,13,193
+WS20/21,Statistik,L3,Konzentrationsmaße ,5,420,8,10,6,111,6,290,6,4,11,120
+WS20/21,Statistik,L4,Kennzahlen bei zwei Merkmalen -- Zusammenhangsmaße,11,690,24,10,4,59,19,710,14,3,18,216
+WS20/21,Statistik,L5,Regressionsrechnung,10,330,15,7,7,117,9,380,7,4,9,106
+WS20/21,Statistik,L6,Wahrscheinlichkeiten,7,325,2,5,4,97,2,830,9,7,9,77
+WS20/21,Statistik,L7,Unabhängigkeiten und bedingte Wahrscheinlichkeiten,6,600,7,7,6,72,5,230,7,1,10,78
+WS20/21,Statistik,L8,Zufallsvariablen,7,470,13,9,7,149,13,300,5,8,12,111
+WS20/21,Statistik,L9,Wahrscheinlichkeitsverteilungen,7,345,19,10,6,125,15,430,0,10,10,50
+WS20/21,Statistik,L10,Parameterschätzung,7,730,18,10,6,147,10,345,4,11,15,94
+WS20/21,Statistik 2,L1 ,Zufallsvariablen,15,1580,15,10,9,184,14,480,13,10,16,155
+WS20/21,Statistik 2,L2,Spezielle diskrete Verteilungen,5,650,9,4,5,157,8,190,0,12,5,105
+WS20/21,Statistik 2,L3,Spezielle stetige Verteilungen,4,820,10,10,6,141,10,240,5,9,8,118
+WS20/21,Statistik 2,L4,Grenzwertsätze,4,490,4,8,6,94,3,170,2,7,7,54
+WS20/21,Statistik 2,L5,Grundlagen der schließenden Statistik,4,525,0,6,3,71,0,120,2,10,3,34
+WS20/21,Statistik 2,L6.1,Parameterschätzung -- Punktschätzung,3,640,10,4,3,102,8,50,6,0,7,26
+WS20/21,Statistik 2,L6.2,"Parameterschätzung -- Momenten-Methode, Maximum-Likelihood-Methode",5,520,5,6,4,94,5,210,0,0,5,94
+WS20/21,Statistik 2,L6.3,Parameterschätzung -- Intervallschätzung,5,710,4,8,9,125,4,155,6,5,13,75
+WS20/21,Statistik 2,L7,Testen von Hypothesen,7,1015,3,8,6,146,3,250,23,3,7,92
+WS20/21,Statistik 2,L8,Spezielle Testprobleme -- T-Test,2,200,2,3,5,30,2,40,0,2,2,11
+WS20/21,Statistik 2,L9,Regressionsanalyse,4,370,3,8,4,99,3,115,0,3,6,40
+SS21,Statistik,L1,"Merkmale und Häufigkeiten, empirische Verteilung",18,1200,7,9,8,320,7,355,12,14,11,75
+SS21,Statistik,L2,Kennzahlen bei einem Merkmal,14,1150,16,7,5,228,15,330,12,2,11,66
+SS21,Statistik,L3,Konzentrationsmaße ,8,440,1,8,7,121,0,189,6,5,8,64
+SS21,Statistik,L4,Kennzahlen bei zwei Merkmalen -- Zusammenhangsmaße,21,1320,15,10,8,302,13,465,10,5,40,106
+SS21,Statistik,L5,Regressionsrechnung,8,500,4,8,6,96,3,143,2,8,4,36
+SS21,Statistik,L6,Wahrscheinlichkeiten,13,885,5,9,5,276,5,359,21,7,15,55
+SS21,Statistik,L7,Unabhängigkeiten und bedingte Wahrscheinlichkeiten,10,575,9,7,7,164,3,290,0,1,13,36
+SS21,Statistik,L8,Zufallsvariablen,22,865,12,10,9,268,11,419,4,9,20,98
+SS21,Statistik,L9,Wahrscheinlichkeitsverteilungen,19,1200,8,9,7,113,8,250,2,20,17,46
+SS21,Statistik,L10,Parameterschätzung,15,1290,15,9,6,222,13,420,5,6,12,73
+SS21,Statistik 2,L1 ,Zufallsvariablen,14,1090,13,9,6,253,13,275,10,7,27,96
+SS21,Statistik 2,L2,Spezielle diskrete Verteilungen,17,945,15,8,7,246,15,210,2,20,17,37
+SS21,Statistik 2,L3,Spezielle stetige Verteilungen,14,850,8,7,6,129,7,200,1,18,11,37
+SS21,Statistik 2,L4,Grenzwertsätze,3,240,5,5,4,48,4,55,0,6,5,15
+SS21,Statistik 2,L5,Grundlagen der schließenden Statistik,4,300,0,7,3,49,0,80,0,5,2,26
+SS21,Statistik 2,L6.1,Parameterschätzung -- Punktschätzung,6,730,1,8,5,122,1,90,2,3,5,12
+SS21,Statistik 2,L6.2,"Parameterschätzung -- Momenten-Methode, Maximum-Likelihood-Methode",6,600,5,6,5,88,4,145,1,2,7,27
+SS21,Statistik 2,L6.3,Parameterschätzung -- Intervallschätzung,17,1010,11,8,6,162,8,195,1,7,18,50
+SS21,Statistik 2,L7,Testen von Hypothesen,10,1300,3,7,7,152,3,200,6,5,15,56
+SS21,Statistik 2,L8,Spezielle Testprobleme -- T-Test,4,490,2,6,7,60,2,40,2,1,4,8
+SS21,Statistik 2,L9,Regressionsanalyse,5,450,7,8,7,88,7,100,1,1,6,17
+WS21/22,Statistik,L1,"Merkmale und Häufigkeiten, empirische Verteilung",25,1420,8,10,8,168,8,370,23,18,25,115
+WS21/22,Statistik,L2,Kennzahlen bei einem Merkmal,15,1010,15,8,7,221,15,410,6,2,21,94
+WS21/22,Statistik,L3,Konzentrationsmaße ,9,480,5,8,8,112,4,210,4,5,15,67
+WS21/22,Statistik,L4,Kennzahlen bei zwei Merkmalen -- Zusammenhangsmaße,23,1405,15,10,9,283,12,605,12,3,29,117
+WS21/22,Statistik,L5,Regressionsrechnung,9,530,6,9,7,122,6,290,3,8,16,67
+WS21/22,Statistik,L6,Wahrscheinlichkeiten,13,990,3,7,7,233,3,310,12,7,14,45
+WS21/22,Statistik,L7,Unabhängigkeiten und bedingte Wahrscheinlichkeiten,6,470,3,7,7,96,3,244,0,1,10,39
+WS21/22,Statistik,L8,Zufallsvariablen,23,1030,15,9,6,284,14,505,14,10,27,116
+WS21/22,Statistik,L9,Wahrscheinlichkeitsverteilungen,17,1120,13,8,7,306,10,310,3,18,15,59
+WS21/22,Statistik,L10,Parameterschätzung,18,1370,21,9,8,174,20,460,8,7,24,115
+WS21/22,Statistik 2,L1 ,Zufallsvariablen,30,1660,9,9,8,367,8,330,20,9,22,162
+WS21/22,Statistik 2,L2,Spezielle diskrete Verteilungen,15,845,7,9,8,241,5,185,1,19,13,49
+WS21/22,Statistik 2,L3,Spezielle stetige Verteilungen,13,460,5,8,7,125,4,220,5,13,9,54
+WS21/22,Statistik 2,L4,Grenzwertsätze,4,230,3,5,6,63,3,175,0,10,2,25
+WS21/22,Statistik 2,L5,Grundlagen der schließenden Statistik,3,300,0,5,5,45,0,70,1,0,3,14
+WS21/22,Statistik 2,L6.1,Parameterschätzung -- Punktschätzung,7,680,3,7,6,127,3,100,0,6,1,18
+WS21/22,Statistik 2,L6.2,"Parameterschätzung -- Momenten-Methode, Maximum-Likelihood-Methode",7,530,2,9,8,92,2,190,0,2,14,56
+WS21/22,Statistik 2,L6.3,Parameterschätzung -- Intervallschätzung,13,820,9,8,7,154,9,220,2,7,8,68
+WS21/22,Statistik 2,L7,Testen von Hypothesen,14,1080,14,8,5,183,7,270,10,10,8,77
+WS21/22,Statistik 2,L8,Spezielle Testprobleme -- T-Test,1,80,2,8,4,14,1,10,0,0,1,3
+WS21/22,Statistik 2,L9,Regressionsanalyse,6,480,4,9,9,91,3,100,1,1,3,24

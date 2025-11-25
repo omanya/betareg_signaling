@@ -1,0 +1,64 @@
+"","semester","course","lesson","name","aver","attempted","passed"
+"1","WS20/21","Statistik","L1","Merkmale und Häufigkeiten, empirische Verteilung",NA,NA,NA
+"2","WS20/21","Statistik","L2","Kennzahlen bei einem Merkmal",0.8203125,32,24
+"3","WS20/21","Statistik","L3","Konzentrationsmaße ",0.751861042183623,31,25
+"4","WS20/21","Statistik","L4","Kennzahlen bei zwei Merkmalen -- Zusammenhangsmaße",0.691826923076923,32,27
+"5","WS20/21","Statistik","L5","Regressionsrechnung",0.302083333333333,32,7
+"6","WS20/21","Statistik","L6","Wahrscheinlichkeiten",0.483870967741935,31,15
+"7","WS20/21","Statistik","L7","Unabhängigkeiten und bedingte Wahrscheinlichkeiten",0.256355479598376,31,8
+"8","WS20/21","Statistik","L8","Zufallsvariablen",0.575268817204301,31,16
+"9","WS20/21","Statistik","L9","Wahrscheinlichkeitsverteilungen",NA,NA,NA
+"10","WS20/21","Statistik","L10","Parameterschätzung",0.4375,32,12
+"11","WS20/21","Statistik 2","L1 ","Zufallsvariablen",0.593764705882353,22,13
+"12","WS20/21","Statistik 2","L2","Spezielle diskrete Verteilungen",0.541144781144781,20,12
+"13","WS20/21","Statistik 2","L3","Spezielle stetige Verteilungen",NA,NA,NA
+"14","WS20/21","Statistik 2","L4","Grenzwertsätze",0.404846846846847,21,4
+"15","WS20/21","Statistik 2","L5","Grundlagen der schließenden Statistik",NA,NA,NA
+"16","WS20/21","Statistik 2","L6.1","Parameterschätzung -- Punktschätzung",NA,NA,NA
+"17","WS20/21","Statistik 2","L6.2","Parameterschätzung -- Momenten-Methode, Maximum-Likelihood-Methode",0.462330097087379,20,9
+"18","WS20/21","Statistik 2","L6.3","Parameterschätzung -- Intervallschätzung",0.587135135135135,21,11
+"19","WS20/21","Statistik 2","L7","Testen von Hypothesen",0.669851694915254,23,15
+"20","WS20/21","Statistik 2","L8","Spezielle Testprobleme -- T-Test",0.613787610619469,22,14
+"21","WS20/21","Statistik 2","L9","Regressionsanalyse",0.644177083333333,20,13
+"22","SS21","Statistik","L1","Merkmale und Häufigkeiten, empirische Verteilung",NA,NA,NA
+"23","SS21","Statistik","L2","Kennzahlen bei einem Merkmal",0.941428571428572,35,32
+"24","SS21","Statistik","L3","Konzentrationsmaße ",0.749450549450549,35,28
+"25","SS21","Statistik","L4","Kennzahlen bei zwei Merkmalen -- Zusammenhangsmaße",0.821978021978022,35,33
+"26","SS21","Statistik","L5","Regressionsrechnung",0.7,35,25
+"27","SS21","Statistik","L6","Wahrscheinlichkeiten",0.573529411764706,34,20
+"28","SS21","Statistik","L7","Unabhängigkeiten und bedingte Wahrscheinlichkeiten",0.4375,34,13
+"29","SS21","Statistik","L8","Zufallsvariablen",0.632352941176471,34,20
+"30","SS21","Statistik","L9","Wahrscheinlichkeitsverteilungen",NA,NA,NA
+"31","SS21","Statistik","L10","Parameterschätzung",0.748571428571429,35,27
+"32","SS21","Statistik 2","L1 ","Zufallsvariablen",0.574373873873874,27,13
+"33","SS21","Statistik 2","L2","Spezielle diskrete Verteilungen",0.650918498168498,24,19
+"34","SS21","Statistik 2","L3","Spezielle stetige Verteilungen",NA,NA,NA
+"35","SS21","Statistik 2","L4","Grenzwertsätze",0.502343526785714,25,13
+"36","SS21","Statistik 2","L5","Grundlagen der schließenden Statistik",NA,NA,NA
+"37","SS21","Statistik 2","L6.1","Parameterschätzung -- Punktschätzung",NA,NA,NA
+"38","SS21","Statistik 2","L6.2","Parameterschätzung -- Momenten-Methode, Maximum-Likelihood-Methode",0.617446778711485,21,14
+"39","SS21","Statistik 2","L6.3","Parameterschätzung -- Intervallschätzung",0.580307798481712,25,18
+"40","SS21","Statistik 2","L7","Testen von Hypothesen",0.576856878315705,33,17
+"41","SS21","Statistik 2","L8","Spezielle Testprobleme -- T-Test",0.525249140836141,33,19
+"42","SS21","Statistik 2","L9","Regressionsanalyse",0.394880952380952,20,6
+"43","WS21/22","Statistik","L1","Merkmale und Häufigkeiten, empirische Verteilung",NA,NA,NA
+"44","WS21/22","Statistik","L2","Kennzahlen bei einem Merkmal",0.893103448275862,29,25
+"45","WS21/22","Statistik","L3","Konzentrationsmaße ",0.754523728234892,29,24
+"46","WS21/22","Statistik","L4","Kennzahlen bei zwei Merkmalen -- Zusammenhangsmaße",0.706631299734748,29,25
+"47","WS21/22","Statistik","L5","Regressionsrechnung",NA,NA,NA
+"48","WS21/22","Statistik","L6","Wahrscheinlichkeiten",0.390804597701149,29,12
+"49","WS21/22","Statistik","L7","Unabhängigkeiten und bedingte Wahrscheinlichkeiten",0.370689655172414,29,9
+"50","WS21/22","Statistik","L8","Zufallsvariablen",0.456896551724138,29,14
+"51","WS21/22","Statistik","L9","Wahrscheinlichkeitsverteilungen",0.191954022988506,29,5
+"52","WS21/22","Statistik","L10","Parameterschätzung",0.655172413793103,29,18
+"53","WS21/22","Statistik 2","L1 ","Zufallsvariablen",0.543404102564103,17,9
+"54","WS21/22","Statistik 2","L2","Spezielle diskrete Verteilungen",0.577489249880554,16,11
+"55","WS21/22","Statistik 2","L3","Spezielle stetige Verteilungen",NA,NA,NA
+"56","WS21/22","Statistik 2","L4","Grenzwertsätze",0.443047619047619,17,7
+"57","WS21/22","Statistik 2","L5","Grundlagen der schließenden Statistik",NA,NA,NA
+"58","WS21/22","Statistik 2","L6.1","Parameterschätzung -- Punktschätzung",NA,NA,NA
+"59","WS21/22","Statistik 2","L6.2","Parameterschätzung -- Momenten-Methode, Maximum-Likelihood-Methode",0.342183035714286,18,5
+"60","WS21/22","Statistik 2","L6.3","Parameterschätzung -- Intervallschätzung",0.584016483516484,17,13
+"61","WS21/22","Statistik 2","L7","Testen von Hypothesen",0.696786596119929,18,14
+"62","WS21/22","Statistik 2","L8","Spezielle Testprobleme -- T-Test",0.642305114638448,18,12
+"63","WS21/22","Statistik 2","L9","Regressionsanalyse",0.418023504273504,14,5
