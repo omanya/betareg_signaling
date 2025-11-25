@@ -1,7 +1,7 @@
 ---
 title: "Optimizing Signaling Strategies in Online Teaching: A Data-Driven Approach"
 author: Maria Osipenko
-output: md_document
+output: html_document
 ---
 
 ```{r setup, include=FALSE, echo=FALSE}
@@ -152,7 +152,7 @@ dfmod = transform(dfmod, prop=passed/attempted)
 colnames(dfmod)[grepl("PC",colnames(dfmod))] = paste0("S",1:K)
 
 # beta model with heteroscedasticity
-model1 <- betareg(prop ~ complex+S1+S2+S3+S4|complex+S1+S2+S3+S4, data=dfmod[,-c(1,2)], link="logit",link.phi = "log", type="ML")
+model1 <- betareg(prop ~ complex+S1+S2+S3+S4|complex+S1+S2+S3+S4, data=dfmod[,-c(1,2)], link="probit",link.phi = "log", type="ML")
 #summary(model1)
 ```
 
@@ -207,19 +207,20 @@ caption<-"Summaries of the estimated means and standard deviations of the result
 
 ```{r figshapes, out.width="100%",fig.height=3, fig.cap = "Fitted beta distribution densities for a selection of teaching cases, illustrating variation in mean and scale parameters across the modelled topics.", echo=F}
 x=seq(0,1,0.001)
-plot(x, dbetar(x,mu[1],phi[1]), type="l", ylim=c(0,15), ylab="f(y)", xlab="y", axes=FALSE, col=NA)
+plot(x, dbetar(x,mu[1],phi[1]), type="l", ylim=c(0,16), ylab="f(y)", xlab="y", axes=FALSE, col=NA)
 axis(1)
 axis(2, las=2)
 ind = labl = rn = NULL
 for (i in 1:nrow(dfmod)){
   dist = dbetar(x,mu[i],phi[i])
   col=scales::alpha(1,0.5)
-  if(any(dist>15)){
+  if(any(dist>25)){
     col=3
     ind = c(ind, i)
     rn = c(rn, rownames(dfmod)[i])
     labl = c(labl, "green")
-  } else if (any(dist>14)){
+    #dist=rep(NA, length(x))
+  } else if (any(dist>15)){
     col=2
     ind = c(ind, i)
      rn = c(rn, rownames(dfmod)[i])
@@ -229,7 +230,7 @@ for (i in 1:nrow(dfmod)){
     ind = c(ind, i)
      rn = c(rn, rownames(dfmod)[i])
      labl = c(labl, "orange")
-  } else if (any(dist[x==0.71]>5)){
+  } else if (any(dist[x>0.71]>5)){
     col=4
     ind = c(ind, i)
      rn = c(rn, rownames(dfmod)[i])
