@@ -147,12 +147,12 @@ library(broom)
 library(kableExtra)
 #https://cran.r-project.org/web/packages/betareg/vignettes/betareg.html
 library(betareg)
-dfmod<-data.frame(cbind(daten[!(is.na(daten$aver)|rownames(daten)%in%outl),c("passed","attempted","complex","experience","course")],coefs))
+dfmod<-data.frame(cbind(daten[!(is.na(daten$aver)|rownames(daten)%in%outl),c("aver","passed","attempted","complex","experience","course")],coefs))
 dfmod = transform(dfmod, prop=passed/attempted)
 colnames(dfmod)[grepl("PC",colnames(dfmod))] = paste0("S",1:K)
 
 # beta model with heteroscedasticity
-model1 <- betareg(prop ~ complex+S1+S2+S3+S4|complex+S1+S2+S3+S4, data=dfmod[,-c(1,2)], link="probit",link.phi = "log", type="ML")
+model1 <- betareg(aver ~ complex+S1+S2+S3+S4|complex+S1+S2+S3+S4, data=dfmod, link="probit",link.phi = "log", type="ML")
 #summary(model1)
 ```
 
@@ -214,18 +214,18 @@ ind = labl = rn = NULL
 for (i in 1:nrow(dfmod)){
   dist = dbetar(x,mu[i],phi[i])
   col=scales::alpha(1,0.5)
-  if(any(dist>25)){
+  if(any(dist>30)){
     col=3
     ind = c(ind, i)
     rn = c(rn, rownames(dfmod)[i])
     labl = c(labl, "green")
     #dist=rep(NA, length(x))
-  } else if (any(dist>15)){
+  } else if (any(dist[x>0.8]>15)){
     col=2
     ind = c(ind, i)
      rn = c(rn, rownames(dfmod)[i])
      labl = c(labl, "red")
-  } else if (any(dist>10)){
+  } else if (any(dist[x<0.5]>15)){
     col="orange"
     ind = c(ind, i)
      rn = c(rn, rownames(dfmod)[i])
@@ -235,7 +235,12 @@ for (i in 1:nrow(dfmod)){
     ind = c(ind, i)
      rn = c(rn, rownames(dfmod)[i])
      labl = c(labl, "blue")
-  } else {col= "darkgreen"}
+  } else if (any(dist[x>0.7]>0.5)){
+    col="darkgreen"
+    ind = c(ind, i)
+     rn = c(rn, rownames(dfmod)[i])
+     labl = c(labl,"darkgreen")
+  } else {col= NA}
   if(any(dist>5)&max(dist)<30){  lines(x,dist, col=col)}
 }
 

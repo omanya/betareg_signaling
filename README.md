@@ -65,98 +65,98 @@ Components.</caption>
 <tr class="odd">
 <td style="text-align: left;">mean</td>
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: left;">0.3923</td>
-<td style="text-align: left;">0.0765</td>
-<td style="text-align: left;">5.1260</td>
+<td style="text-align: left;">0.3098</td>
+<td style="text-align: left;">0.0572</td>
+<td style="text-align: left;">5.4154</td>
 <td style="text-align: left;">0.0000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">mean</td>
 <td style="text-align: left;">complex</td>
-<td style="text-align: left;">-0.4484</td>
-<td style="text-align: left;">0.0956</td>
-<td style="text-align: left;">-4.6888</td>
+<td style="text-align: left;">-0.3590</td>
+<td style="text-align: left;">0.0478</td>
+<td style="text-align: left;">-7.5096</td>
 <td style="text-align: left;">0.0000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">mean</td>
 <td style="text-align: left;">S1</td>
-<td style="text-align: left;">0.0684</td>
-<td style="text-align: left;">0.0129</td>
-<td style="text-align: left;">5.3168</td>
+<td style="text-align: left;">0.0842</td>
+<td style="text-align: left;">0.0096</td>
+<td style="text-align: left;">8.7786</td>
 <td style="text-align: left;">0.0000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">mean</td>
 <td style="text-align: left;">S2</td>
-<td style="text-align: left;">0.1010</td>
-<td style="text-align: left;">0.0313</td>
-<td style="text-align: left;">3.2307</td>
-<td style="text-align: left;">0.0012</td>
+<td style="text-align: left;">0.0686</td>
+<td style="text-align: left;">0.0279</td>
+<td style="text-align: left;">2.4609</td>
+<td style="text-align: left;">0.0139</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">mean</td>
 <td style="text-align: left;">S3</td>
-<td style="text-align: left;">0.0420</td>
-<td style="text-align: left;">0.0184</td>
-<td style="text-align: left;">2.2832</td>
-<td style="text-align: left;">0.0224</td>
+<td style="text-align: left;">0.0280</td>
+<td style="text-align: left;">0.0089</td>
+<td style="text-align: left;">3.1419</td>
+<td style="text-align: left;">0.0017</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">mean</td>
 <td style="text-align: left;">S4</td>
-<td style="text-align: left;">0.1519</td>
-<td style="text-align: left;">0.0322</td>
-<td style="text-align: left;">4.7205</td>
-<td style="text-align: left;">0.0000</td>
+<td style="text-align: left;">0.0663</td>
+<td style="text-align: left;">0.0265</td>
+<td style="text-align: left;">2.4977</td>
+<td style="text-align: left;">0.0125</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">precision</td>
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: left;">2.4455</td>
-<td style="text-align: left;">0.2597</td>
-<td style="text-align: left;">9.4177</td>
+<td style="text-align: left;">3.0447</td>
+<td style="text-align: left;">0.2611</td>
+<td style="text-align: left;">11.6628</td>
 <td style="text-align: left;">0.0000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">precision</td>
 <td style="text-align: left;">complex</td>
-<td style="text-align: left;">-0.1698</td>
-<td style="text-align: left;">0.4061</td>
-<td style="text-align: left;">-0.4180</td>
-<td style="text-align: left;">0.6759</td>
+<td style="text-align: left;">0.1335</td>
+<td style="text-align: left;">0.4132</td>
+<td style="text-align: left;">0.3231</td>
+<td style="text-align: left;">0.7466</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">precision</td>
 <td style="text-align: left;">S1</td>
-<td style="text-align: left;">0.4505</td>
-<td style="text-align: left;">0.1032</td>
-<td style="text-align: left;">4.3667</td>
+<td style="text-align: left;">0.5955</td>
+<td style="text-align: left;">0.1029</td>
+<td style="text-align: left;">5.7869</td>
 <td style="text-align: left;">0.0000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">precision</td>
 <td style="text-align: left;">S2</td>
-<td style="text-align: left;">-0.2841</td>
-<td style="text-align: left;">0.1246</td>
-<td style="text-align: left;">-2.2805</td>
-<td style="text-align: left;">0.0226</td>
+<td style="text-align: left;">-0.7990</td>
+<td style="text-align: left;">0.1222</td>
+<td style="text-align: left;">-6.5389</td>
+<td style="text-align: left;">0.0000</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">precision</td>
 <td style="text-align: left;">S3</td>
-<td style="text-align: left;">0.4485</td>
-<td style="text-align: left;">0.1531</td>
-<td style="text-align: left;">2.9288</td>
-<td style="text-align: left;">0.0034</td>
+<td style="text-align: left;">0.9208</td>
+<td style="text-align: left;">0.1541</td>
+<td style="text-align: left;">5.9742</td>
+<td style="text-align: left;">0.0000</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">precision</td>
 <td style="text-align: left;">S4</td>
-<td style="text-align: left;">0.0972</td>
-<td style="text-align: left;">0.1856</td>
-<td style="text-align: left;">0.5238</td>
-<td style="text-align: left;">0.6004</td>
+<td style="text-align: left;">0.4426</td>
+<td style="text-align: left;">0.1865</td>
+<td style="text-align: left;">2.3733</td>
+<td style="text-align: left;">0.0176</td>
 </tr>
 </tbody>
 </table>
@@ -192,21 +192,21 @@ resulting beta distributions.</caption>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">means</td>
-<td style="text-align: left;">0.3539</td>
-<td style="text-align: left;">0.4987</td>
-<td style="text-align: left;">0.5714</td>
-<td style="text-align: left;">0.5769</td>
-<td style="text-align: left;">0.6482</td>
-<td style="text-align: left;">0.8149</td>
+<td style="text-align: left;">0.4025</td>
+<td style="text-align: left;">0.4864</td>
+<td style="text-align: left;">0.5578</td>
+<td style="text-align: left;">0.5608</td>
+<td style="text-align: left;">0.5907</td>
+<td style="text-align: left;">0.8238</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">sds</td>
-<td style="text-align: left;">0.0105</td>
-<td style="text-align: left;">0.1324</td>
-<td style="text-align: left;">0.1695</td>
-<td style="text-align: left;">0.1530</td>
-<td style="text-align: left;">0.1912</td>
-<td style="text-align: left;">0.2101</td>
+<td style="text-align: left;">0.0006</td>
+<td style="text-align: left;">0.0871</td>
+<td style="text-align: left;">0.1502</td>
+<td style="text-align: left;">0.1308</td>
+<td style="text-align: left;">0.1785</td>
+<td style="text-align: left;">0.2010</td>
 </tr>
 </tbody>
 </table>
@@ -243,24 +243,24 @@ class="math inline"><em>μ̂</em></span></th>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">small</td>
-<td style="text-align: left;">-0.4772</td>
-<td style="text-align: left;">-0.5781</td>
-<td style="text-align: left;">-0.0749</td>
-<td style="text-align: left;">-0.3636</td>
+<td style="text-align: left;">-0.5328</td>
+<td style="text-align: left;">-0.4102</td>
+<td style="text-align: left;">-0.1041</td>
+<td style="text-align: left;">-0.1513</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">medium</td>
-<td style="text-align: left;">-0.7630</td>
-<td style="text-align: left;">0.2854</td>
-<td style="text-align: left;">-0.2250</td>
-<td style="text-align: left;">0.7279</td>
+<td style="text-align: left;">-0.4175</td>
+<td style="text-align: left;">1.6173</td>
+<td style="text-align: left;">0.1504</td>
+<td style="text-align: left;">0.6603</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">large</td>
-<td style="text-align: left;">1.6194</td>
-<td style="text-align: left;">1.7084</td>
-<td style="text-align: left;">0.0037</td>
-<td style="text-align: left;">0.0816</td>
+<td style="text-align: left;">1.9840</td>
+<td style="text-align: left;">1.1282</td>
+<td style="text-align: left;">1.3529</td>
+<td style="text-align: left;">2.0273</td>
 </tr>
 </tbody>
 </table>
@@ -289,24 +289,24 @@ class="math inline"><em>ϕ̂</em></span></th>
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">small</td>
-<td style="text-align: left;">-0.6532</td>
-<td style="text-align: left;">0.4038</td>
-<td style="text-align: left;">-0.3813</td>
-<td style="text-align: left;">0.1163</td>
+<td style="text-align: left;">-0.6290</td>
+<td style="text-align: left;">0.6173</td>
+<td style="text-align: left;">-0.3723</td>
+<td style="text-align: left;">0.0168</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">medium</td>
-<td style="text-align: left;">0.9395</td>
-<td style="text-align: left;">-0.7317</td>
-<td style="text-align: left;">0.4427</td>
-<td style="text-align: left;">-0.4473</td>
+<td style="text-align: left;">-0.1112</td>
+<td style="text-align: left;">-0.1790</td>
+<td style="text-align: left;">0.0621</td>
+<td style="text-align: left;">-0.1930</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">large</td>
-<td style="text-align: left;">4.0539</td>
-<td style="text-align: left;">-2.0026</td>
-<td style="text-align: left;">2.7190</td>
-<td style="text-align: left;">0.2114</td>
+<td style="text-align: left;">3.2936</td>
+<td style="text-align: left;">-2.1955</td>
+<td style="text-align: left;">1.4890</td>
+<td style="text-align: left;">0.6173</td>
 </tr>
 </tbody>
 </table>
