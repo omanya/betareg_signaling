@@ -44,6 +44,55 @@ variables, while the term “extra” indicates weights associated with the
 squared versions of these variables.
 </p>
 
+-   checking stability
+
+<!-- -->
+
+    ## Lade nötiges Paket: permute
+
+<table>
+<caption>Stability of the extracted strategies using leave-one-out
+approach and correlations of the resulting perturbed components with the
+original ones, extracted using the whole dataset. The first column
+presents the average correlations and the second column reports their
+standard deviations.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Strategy</th>
+<th style="text-align: left;">Mean correlation</th>
+<th style="text-align: left;">Standard deviation of the correlation</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">S1</td>
+<td style="text-align: left;">0.9717</td>
+<td style="text-align: left;">0.0035</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S2</td>
+<td style="text-align: left;">0.9937</td>
+<td style="text-align: left;">0.0025</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">S3</td>
+<td style="text-align: left;">0.9611</td>
+<td style="text-align: left;">0.0239</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">S4</td>
+<td style="text-align: left;">0.9816</td>
+<td style="text-align: left;">0.0045</td>
+</tr>
+</tbody>
+</table>
+
+Stability of the extracted strategies using leave-one-out approach and
+correlations of the resulting perturbed components with the original
+ones, extracted using the whole dataset. The first column presents the
+average correlations and the second column reports their standard
+deviations.
+
 # Beta Regression with Heteroscedasticity
 
 -   regression results
@@ -314,6 +363,8 @@ class="math inline"><em>ϕ̂</em></span></th>
 Average strategy scores for the four signaling strategies across
 different ranges of the fitted precision parameter *ϕ* indicating how
 strategy usage relates to topic-level performance.
+
+-   Diagnostics
 
 Overall, this study highlights the value of combining detailed
 instructional feature extraction with robust statistical modeling to

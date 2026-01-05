@@ -87,7 +87,8 @@ for(i in 1:(length(vars4regression)-1)){
 outl = c(28,62)
 
 # pca
-pcmod<-prcomp(as.matrix(df[!rownames(df)%in%outl,]))
+X = as.matrix(df[!rownames(df)%in%outl,])
+pcmod<-prcomp(X)
 pcs<-c(1:5)
 varprop = cumsum(pcmod$sdev^2)/sum(pcmod$sdev^2)
 
@@ -132,6 +133,55 @@ while(i <=K){
   
 }
 
+```
+
+- checking stability
+
+```{r}
+library(vegan)
+
+loadings_base = pcmod$rotation
+
+n <- nrow(X)
+p <- ncol(X)
+k <- 4
+
+loadings_loo_rot <- array(NA, dim = c(p, k, n))
+
+for (i in 1:n) {
+  X_loo <- X[-i, ]
+  pca_loo <- prcomp(X_loo, center = FALSE, scale. = FALSE)
+  L_loo <- pca_loo$rotation[, 1:k]
+
+  # Procrustes alignment to baseline loadings
+  proc <- procrustes(loadings_base, L_loo, scale = FALSE)
+  loadings_loo_rot[, , i] <- proc$Yrot[,1:k]
+}
+
+```
+
+```{r tabPC}
+stability <- matrix(NA, n, k)
+
+for (i in 1:n) {
+  for (j in 1:k) {
+    stability[i, j] <- cor(loadings_base[, j], loadings_loo_rot[, j, i])
+  }
+}
+
+
+#mean(stability)
+tabPC = cbind(Strategy = paste0("S",1:k), Mean = round(apply(stability,2,mean),4), SD = round(apply(stability,2,sd),4))
+
+caption<-"Stability of the extracted strategies using leave-one-out approach and correlations of the resulting perturbed components with the original ones, extracted using the whole dataset. The first column presents the average correlations and the second column reports their standard deviations. "
+
+ knitr::kable(tabPC, align = "llll",
+               col.names = c("Strategy","Mean correlation","Standard deviation of the correlation"),
+               row.names = FALSE,
+               digits = 4,
+              escape=F,
+               caption = caption
+  )
 ```
 
 
@@ -287,6 +337,65 @@ caption<-"Average strategy scores for the four signaling strategies across diffe
                caption = caption
   )
 ```
+
+- Diagnostics
+
+```{r, include=FALSE}
+# Randomized quantile residuals
+rq_res <- residuals(model1, type = "quantile")
+
+# Basic diagnostic plots
+par(mfrow = c(1, 2))
+plot(rq_res, ylab = "Randomized quantile residuals",
+     main = "Residuals vs. Index")
+abline(h = 0, lty = 2)
+
+qqnorm(rq_res, main = "QQ-Plot of Quantile Residuals")
+qqline(rq_res, lty = 2)
+
+```
+
+```{r, include =FALSE}
+# Leverage values
+lev <- hatvalues(model1)
+
+# Plot leverage
+plot(lev, ylab = "Leverage", main = "Leverage Values")
+abline(h = 2 * mean(lev), col = "red", lty = 2)
+
+# Identify high-leverage points
+which(lev > 2 * mean(lev))
+```
+
+```{r, include=FALSE}
+# Cook's distances
+cd <- cooks.distance(model1)
+
+# Plot Cook's distance
+plot(cd, ylab = "Cook's Distance", main = "Cook's Distance")
+abline(h = 4 / length(cd), col = "red", lty = 2)
+
+# Identify influential observations
+indr = which(cd > 4 / length(cd))
+
+# Combined Influence Plot
+plot(lev, cd,
+     xlab = "Leverage",
+     ylab = "Cook's Distance",
+     main = "Influence Diagnostics")
+```
+
+
+```{r, include = FALSE}
+model1_r <- betareg(aver ~ complex+S1+S2+S3+S4|complex+S1+S2+S3+S4, data=dfmod[-indr,], link="probit",link.phi = "log", type="ML")
+summary(model1_r)
+```
+
+```{r, include =FALSE}
+model0 <- betareg(aver~complex+S1+S2+S3+S4, data=dfmod, link="logit")
+AIC(model1, model0)[2,2] - AIC(model1, model0)[1,2]
+```
+
 
 
 Overall, this study highlights the value of combining detailed instructional feature extraction with robust statistical modeling to inform evidence-based improvements in teaching and learning. By focusing on both the magnitude and consistency of learning outcomes, instructors can design signaling strategies that maximize comprehension and ensure more equitable success across students.
