@@ -393,9 +393,8 @@ summary(model1_r)
 
 ```{r, include =FALSE}
 model0 <- betareg(aver~complex+S1+S2+S3+S4, data=dfmod, link="logit")
-AIC(model1, model0)[2,2] - AIC(model1, model0)[1,2]
+print(paste0("Delta AIC: ", AIC(model1, model0)[2,2] - AIC(model1, model0)[1,2]))
 ```
-
 
 
 Overall, this study highlights the value of combining detailed instructional feature extraction with robust statistical modeling to inform evidence-based improvements in teaching and learning. By focusing on both the magnitude and consistency of learning outcomes, instructors can design signaling strategies that maximize comprehension and ensure more equitable success across students.
