@@ -366,6 +366,10 @@ strategy usage relates to topic-level performance.
 
 -   Diagnostics
 
+<!-- -->
+
+    ## [1] "Delta AIC: 10.3663216697215"
+
 Overall, this study highlights the value of combining detailed
 instructional feature extraction with robust statistical modeling to
 inform evidence-based improvements in teaching and learning. By focusing

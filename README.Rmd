@@ -391,7 +391,7 @@ model1_r <- betareg(aver ~ complex+S1+S2+S3+S4|complex+S1+S2+S3+S4, data=dfmod[-
 summary(model1_r)
 ```
 
-```{r, include =FALSE}
+```{r, include =T}
 model0 <- betareg(aver~complex+S1+S2+S3+S4, data=dfmod, link="logit")
 print(paste0("Delta AIC: ", AIC(model1, model0)[2,2] - AIC(model1, model0)[1,2]))
 ```
